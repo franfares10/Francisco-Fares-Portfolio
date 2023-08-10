@@ -2,8 +2,7 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
-import { cn } from "@/lib/utils";
-import { NavigationMenuDemo } from '@/components/Header';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -18,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className,"min-h-screen bg-background")}>
+      <body className={inter.className}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           {children}  
         </ThemeProvider>
