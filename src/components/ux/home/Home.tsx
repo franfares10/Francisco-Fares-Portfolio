@@ -16,11 +16,7 @@ const Home = () => {
     }
 
     return (
-        <main className="flex flex-col min-h-screen  items-center p-10 pl-20 pr-20">
-            <div className="z-10 flex w-full items-center justify-center lg:flex">
-                <NavigationMenuDemo />
-            </div>
-            <div className="grid grid-cols-6 w-full h-fit items-center justify-center gap-10 p-8 align-middle">
+            <div id="about" className="grid grid-cols-6 w-full  items-center justify-center gap-10 p-10  align-middle">
                 <div className="col-span-2">
                     <Image style={{ borderRadius: '30% 70% 70% 30% / 30% 37% 63% 70% ' }} src={avatar} alt="" />
                 </div>
@@ -35,12 +31,11 @@ const Home = () => {
                         Highly motivated and detail-oriented Software Engineer with 3 years of experience in designing, developing, and
                         deploying innovative software solutions.
                     </p>
-                    <button className=" align-middle justify-self-center mt-8  text-xs bg-blue-500 text-white font-bold rounded-full w-32 h-12 hover:scale-125 duration-150">
+                    <button className="animate-bounce align-middle justify-self-center mt-8  text-xs bg-blue-500 text-white font-bold rounded-full w-32 h-12 hover:scale-125">
                         Download CV
                     </button>
                 </div>
             </div>
-        </main>
     )
 }
 

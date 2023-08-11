@@ -1,17 +1,13 @@
 import { NavigationMenuDemo } from "@/components/Header";
+import Studies from "@/components/data/studies";
 
 
-const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
+const StudiesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="flex flex-col min-h-screen  items-center p-10 pl-20 pr-20">
-    <div className="z-10 flex w-full items-center justify-center lg:flex">
-        <NavigationMenuDemo />
-    </div>
-    <div className="p-20">
+    <div className="p-20 flex items-center justify-center">
       {children}
     </div>
-    </main>
   );
 };
 
-export default ProfileLayout;
+export default StudiesLayout;
