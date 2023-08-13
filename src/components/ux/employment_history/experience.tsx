@@ -7,6 +7,7 @@ import "react-vertical-timeline-component/style.min.css";
 import experiencesData from "@/components/data/experiences";
 import { useSectionInView } from "@/components/hooks/useSectionInView";
 import { useTheme } from "next-themes"
+import CompanyAvatar from "./company-avatar";
 export default function Experience() {
     const { ref } = useSectionInView("Experience");
     const { theme,setTheme } = useTheme();
@@ -33,14 +34,14 @@ export default function Experience() {
                       : "0.4rem solid rgba(255, 255, 255, 0.5)",
                 }}
                 date={item.date}
-                icon={item.icon}
+                icon={<CompanyAvatar company={item} />}
                 iconStyle={{
                   background:
                     theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
                   fontSize: "1.5rem",
                 }}
               >
-                <h3 className="font-semibold capitalize">{item.title}</h3>
+                <h3 className="font-semibold capitalize">{item.name}</h3>
                 <p className="font-normal !mt-0">{item.location}</p>
                 <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
                   {item.description}

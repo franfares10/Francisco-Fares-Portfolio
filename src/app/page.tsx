@@ -10,7 +10,7 @@ import Experience from '@/components/ux/employment_history/experience';
 
 const HomePage = () => {
     return (
-        <main className="flex flex-col items-center px-8 ">
+        <main className="flex flex-col items-center px-8">
             <Home/>
             <StudiesPage/>
             <Experience/>

@@ -21,8 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en" className='!scroll-smooth'>
       <body className={inter.className}>
-        <ThemeProvider attribute='class' defaultTheme='light'>
-          <ActiveSectionContextProvider>
+        <ThemeProvider attribute='class' defaultTheme='dark'>
+          <ActiveSectionContextProvider >
             <NavigationMenuDemo />
             {children}
             <Footer />
