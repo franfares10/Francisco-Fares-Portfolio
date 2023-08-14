@@ -21,6 +21,7 @@ import clsx from "clsx"
 import links from "./data/links"
 import { motion } from "framer-motion"
 import { useActiveSectionContext } from "@/lib/providers/active-session-context"
+import { Label } from "./ui/label"
 
 export function NavigationMenuDemo() {
   const { isMobile } = useMediaQuery();

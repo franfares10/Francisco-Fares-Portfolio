@@ -8,6 +8,7 @@ import Home from '@/components/ux/home/Home';
 import StudiesPage from '@/app/studies/Studies';
 import Experience from '@/components/ux/employment_history/experience';
 import Contact from './contact/Contact';
+import Projects from './projects/Projects';
 
 const HomePage = () => {
     return (
@@ -15,6 +16,7 @@ const HomePage = () => {
             <Home/>
             <StudiesPage/>
             <Experience/>
+            <Projects/>
             <Contact/>
           </main>
     )

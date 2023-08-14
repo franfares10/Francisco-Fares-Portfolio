@@ -4,16 +4,16 @@ const links = [
       hash: "#about",
     },
     {
+      name: "Studies",
+      hash: "#studies",
+    },
+    {
       name: "Experience",
       hash: "#experience",
     },
     {
       name: "Projects",
       hash: "#projects",
-    },
-    {
-      name: "Studies",
-      hash: "#studies",
     },
     {
       name: "Contact",
