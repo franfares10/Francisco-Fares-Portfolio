@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/context-menu";
 
 import Studies from "@/components/data/studies"
+import { Separator } from "@/components/ui/separator";
 
 type Study = {
     title: string
@@ -96,6 +97,7 @@ export function StudiesSlider({
       </ContextMenu>
       <div className="space-y-1 text-sm">
         <h3 className="font-medium leading-none text-center">{study.title}</h3>
+        <Separator  className="bg-slate-300"/>
         <p className="text-xs text-muted-foreground text-center">{study.university}</p>
       </div>
     </div>

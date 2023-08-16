@@ -14,7 +14,12 @@
   font-weight: bold;
   color: #fff;
 }
-
+.swiper-slide :hover{
+  	
+  transform: scale(1.1);
+  transition: transform 0.5s;
+  cursor: pointer;
+}
 .swiper-slide:nth-child(1n) {
   background-color: rgb(206, 17, 17);
 }
@@ -24,7 +29,7 @@
 }
 
 .swiper-slide:nth-child(3n) {
-  background-color: rgb(10, 184, 111);
+  background-color:#008333;
 }
 
 .swiper-slide:nth-child(4n) {
