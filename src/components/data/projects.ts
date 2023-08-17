@@ -13,7 +13,8 @@ const projectsData = [
         "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
       image: exxonmobil,
       date: "2020-2022",
-      url: "https://corporate.exxonmobil.com/"
+      url: "https://corporate.exxonmobil.com/",
+      technologies: ["Next.js","Typescript","TailwindCSS","Prisma","Zod","Vercel","PostgreSQL"]
     },
     {
       id: 1,
@@ -23,7 +24,8 @@ const projectsData = [
         "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
       image: dressy,
       date: "2023 - present",
-      url:"https://www.coderhouse.com/"
+      url:"https://www.coderhouse.com/",
+      technologies: ["Node.js", "Express", "MongoDB", "Mongoose", "React","Python","Flask","Tensorflow","Keras","AWS","Unity","c#"]
     },
     {
       id: 2,
@@ -33,7 +35,8 @@ const projectsData = [
         "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
       image: mibanco,
       date: "2023 - present",
-      url:"https://www.uade.edu.ar/"
+      url:"https://www.uade.edu.ar/",
+      technologies: ["Node.js","Express","Javascript","ForgeRock","Azure","Docker"]
     },
     {
       id: 3,
@@ -42,7 +45,8 @@ const projectsData = [
       description:
         "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
       date: "2023 - present",
-      url:"https://www.rakkau.com/"
+      url:"https://www.rakkau.com/",
+      technologies: ["React Native","Node.js","Express","MySQL","Sequelize","Heroku","HTML","CSS"]
     },
   ];
 
