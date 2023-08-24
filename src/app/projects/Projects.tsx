@@ -8,7 +8,9 @@ const Projects = () => {
 
     if (isMobile) {
         return (
-            <p>HOLA</p>
+            <div id="projects" className="flex items-center justify-center w-full h-screen">
+               <ProjectSwiper/>
+            </div>
         )
     }
 

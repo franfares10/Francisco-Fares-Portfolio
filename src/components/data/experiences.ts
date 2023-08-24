@@ -6,8 +6,13 @@ const experiencesData = [
     {
       name: "Software Developer",
       location: "ExxonMobil, AR",
-      description:
-        "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      description:[
+        "Microservices Development",
+        "Web Development",
+        "Applications Maintenance",
+        "Communication with clients from all over the world",
+        "Process Optimization",
+      ],
       image: exxonmobil,
       date: "2020-2022",
       url: "https://corporate.exxonmobil.com/"
@@ -15,8 +20,12 @@ const experiencesData = [
     {
       name: "Back-End Tutor",
       location: "Coderhouse, AR",
-      description:
-        "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      description:[
+        "Project Guidance",
+        "Code Reviews",
+        "Mentoring",
+        "Courses of Back-End Development with NodeJS, Express, MongoDB, among others.",
+      ],
       image: coderhouse,
       date: "2023 - present",
       url:"https://www.coderhouse.com/"
@@ -24,8 +33,11 @@ const experiencesData = [
     {
       name: "University Professor",
       location: "Universidad Argentina de la Empresa, AR",
-      description:
-        "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
+      description:[
+        "Responsible for the subject: 'APIs'.",
+        "Teaching +100 students per year.",
+        "Fullstack development with NodeJS, Express, MongoDB, ReactJS, among others.",
+      ],
       image: uade,
       date: "2023 - present",
       url:"https://www.uade.edu.ar/"
@@ -33,8 +45,14 @@ const experiencesData = [
     {
       name: "Systems Integration Engineer",
       location: "Rakkau, AR",
-      description:
-        "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
+      description:[
+        "Design and Architecture",
+        "Component Integration",
+        "Orchestrator Development",
+        "Testing",
+        "Environment Maintenance",
+        "Documentation",
+      ],
       image: rakkau,
       date: "2023 - present",
       url:"https://www.rakkau.com/"

@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Skills from "./Skills";
+import useMediaQuery from "@/components/hooks/useMediaQuery";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -30,8 +31,34 @@ const fadeInAnimationVariants = {
 };
 
 const ProjectSwiper = () => {
+    const { isMobile } = useMediaQuery();
     const [currentProject, setCurrentProject] = useState(projects[0]);
 
+    if(isMobile){
+        return (
+            <div className="w-3/4 h-full flex flex-col items-center justify-center p-10">
+                <Swiper
+                    className="w-full rounded-3xl"
+                    effect="cards"
+                    grabCursor={true}
+                    modules={[EffectCards]}
+                    onSlideChange={(swiper) => setCurrentProject(projects[swiper.realIndex])}
+                >
+                    {projects.map((project, index) => (
+                        <SwiperSlide className="hover:scale-y-150 w-1/2" key={index}>
+                            <motion.div>
+                                {project.image
+                                    ? <Image className="px-4 w-full h-full" src={project.image} alt="p" />
+                                    : <Label style={{ color: "#0084AE" }} className="text-3xl font-thin">{project.name}</Label>
+                                }
+                            </motion.div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                <Skills technologies={currentProject.technologies}/>
+            </div>
+        );
+    }
     return (
         <div className="w-1/2 h-full flex flex-col items-center justify-center pt-10">
             <Swiper

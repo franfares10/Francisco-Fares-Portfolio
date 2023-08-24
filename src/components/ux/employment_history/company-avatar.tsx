@@ -7,7 +7,7 @@ import coderhouse from "../../../assets/coderhouse.png";
 type Company = {
     name: string;
     location: string;
-    description: string;
+    description: string[];
     image: StaticImageData;
     date: string;
     url: string;

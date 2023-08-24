@@ -16,7 +16,7 @@ import {
 import Studies from "@/components/data/studies"
 import { Separator } from "@/components/ui/separator";
 
-type Study = {
+export type Study = {
     title: string
     description: string
     img: StaticImageData

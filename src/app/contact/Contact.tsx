@@ -7,14 +7,16 @@ const Contact = () => {
 
     if (isMobile) {
         return (
-            <p>HOLA</p>
+            <div id="contact" className="flex items-center justify-center w-full h-screen  pt-10">
+                <ContactForm />
+            </div>
         )
     }
 
     return (
-            <div id="contact" className="flex items-center justify-center w-full h-screen px-20 pt-10">
-               <ContactForm/>
-            </div>
+        <div id="contact" className="flex items-center justify-center w-full h-screen px-20 pt-10">
+            <ContactForm />
+        </div>
     )
 }
 

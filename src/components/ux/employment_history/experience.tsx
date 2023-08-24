@@ -37,6 +37,7 @@ export default function Experience() {
                     : "0.4rem solid rgba(255, 255, 255, 0.5)",
               }}
               date={item.date}
+              dateClassName="md:mx-5"
               icon={<CompanyAvatar company={item} />}
               iconStyle={{
                 background:
@@ -46,9 +47,11 @@ export default function Experience() {
             >
               <h3 className="font-semibold capitalize">{item.name}</h3>
               <p className="font-normal !mt-0">{item.location}</p>
-              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
-                {item.description}
-              </p>
+              <ul>
+                {item.description.map((bullet,index) =>{
+                  return <li key={index} className="!mt-1 !font-normal text-gray-700 dark:text-white/75">{bullet}</li>
+                })}
+              </ul>
             </VerticalTimelineElement>
           </React.Fragment>
         ))}

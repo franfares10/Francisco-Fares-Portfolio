@@ -83,8 +83,11 @@ export function NavigationMenuDemo() {
                   className="h-3/4 flex items-center justify-center relative"
                   initial={{ y: -100, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                >
-                  <ModeToggle />
+                  onClick={() => {
+                    setTimeOfLastClick(Date.now());
+                    setOpen(false);
+                  }}>
+                  <ModeToggle/>
                 </motion.li>
               </ul>
             </nav>
