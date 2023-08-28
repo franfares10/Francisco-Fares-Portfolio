@@ -34,6 +34,7 @@ const formSchema = z.object({
 
 const ContactForm = () => {
     const { isMobile } = useMediaQuery();
+    
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -44,6 +45,7 @@ const ContactForm = () => {
         }
     });
 
+    
     function onSubmit(data: z.infer<typeof formSchema>) {
         console.log(data);
     }

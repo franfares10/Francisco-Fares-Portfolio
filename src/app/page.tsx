@@ -6,7 +6,7 @@ import { NavigationMenuDemo } from '@/components/Header';
 import avatar from "../assets/foto_cv.jpg";
 import Home from '@/app/Home/Home';
 import StudiesPage from '@/app/studies/Studies';
-import Experience from '@/components/ux/employment_history/experience';
+import Experience from '@/app/employment_history/experience';
 import Contact from './contact/Contact';
 import Projects from './projects/Projects';
 

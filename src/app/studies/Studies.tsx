@@ -9,32 +9,27 @@ import SectionHeading from '@/components/ux/employment_history/section-heading';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 const StudiesPage = () => {
     const { isMobile } = useMediaQuery();
 
     if (isMobile) {
         return (
-            <div id="studies" className="flex flex-col items-center justify-center h-screen w-full gap-y-10">
+            <div id="studies" className="flex flex-col items-center justify-center h-screen w-full gap-y-6 px-6">
                 <SectionHeading>Studies</SectionHeading>
-                <Swiper className="w-4/5 rounded-3xl hover:scale-105 transition-all duration-300 bg-slate-600"
-                    pagination={true}
-                    modules={[Pagination]}>
-                    {Studies.map((study, index) => (
-                        <SwiperSlide key={index} className='flex items-center justify-center bg-slate-600'>
-                            <div className='flex flex-col gap-y-8'>
-                                <Image src={study.img} alt="p" className={cn("h-auto w-auto object-cover transition-all hover:scale-105")} />
-                                <div className='space-y-4 flex flex-col items-center justify-center'>
-                                <h3 className="font-medium leading-none text-center">{study.title}</h3>
+                
+                    <div className='flex flex-col items-center justify-center bg-slate-600 rounded-xl w-full'>
+                        <Image src={Studies[0].img} alt="p" className={"h-auto w-auto object-cover transition-all hover:scale-105 rounded-t-xl pb-6"} />
+                        <div className='flex flex-col gap-y-4'>
+                            <div className='space-y-4 flex flex-col items-center justify-center'>
+                                <Label className="font leading-none text-center">{Studies[0].title}</Label>
                                 <Separator className="bg-slate-300 w-2/3" />
-                                </div>
-                                <p className="text-xs text-muted-foreground text-center">{study.university}</p>
-
                             </div>
-                        </SwiperSlide>
+                            <p className="text-xs text-muted-foreground text-center">{Studies[0].university}</p>
 
-                    ))}
-                </Swiper>
+                        </div>
+                    </div>
             </div>
         )
     }

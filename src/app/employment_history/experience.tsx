@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "./section-heading";
+import SectionHeading from "../../components/ux/employment_history/section-heading";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import experiencesData from "@/components/data/experiences";
 import { useSectionInView } from "@/components/hooks/useSectionInView";
 import { useTheme } from "next-themes"
-import CompanyAvatar from "./company-avatar";
+import CompanyAvatar from "../../components/ux/employment_history/company-avatar";
 import { motion } from "framer-motion";
 
 export default function Experience() {
