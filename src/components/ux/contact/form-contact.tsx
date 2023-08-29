@@ -1,17 +1,18 @@
 "use client"
 
 import Link from "next/link";
-import * as z from "zod";
+import { z } from "zod";
+import { api } from "@/lib/api";
+import { trpc } from "@/lib/providers/trpc-provider";
+import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { LinkedinIcon } from "lucide-react";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormLabel,
     FormItem,
@@ -24,30 +25,55 @@ import github from "@/assets/github.svg";
 import gmail from "@/assets/gmail.png";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useMediaQuery from "@/components/hooks/useMediaQuery";
+import { useCallback } from "react";
+import React from "react";
+import { create } from "domain";
+
 
 const formSchema = z.object({
     name: z.string().min(6, "Too short").max(60, "Too long").nonempty("Required"),
     email: z.string().email("Invalid email").nonempty("Required"),
-    company_name: z.string().min(6, "Too short").max(60, "Too long").nonempty("Required"),
     message: z.string().min(10, "Too short").max(500, "Too long").nonempty("Required"),
+    company: z.string().min(6, "Too short").max(60, "Too long").nonempty("Required"),
 });
 
 const ContactForm = () => {
     const { isMobile } = useMediaQuery();
-    
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            name: "",
-            email: "",
-            company_name: "",
-            message: "",
+    const [content, setContent] = React.useState({
+        name: "",
+        email: "",
+        message: "",
+        company: "",
+    });
+    const utils = trpc.useContext();
+    const { toast } = useToast();
+
+    const createPostMutation = api.contact.createMessage.useMutation({
+        async onSuccess() {
+            sendMessage();
+            toast({
+                title: "Message sent",
+                description: "Your message has been sent successfully",
+            });
         }
     });
 
+    const sendMessage = useCallback(() => {
+        setContent({
+            name: "",
+            email: "",
+            message: "",
+            company: "",
+        });
+    },[content]);
+
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+    });
+
     
-    function onSubmit(data: z.infer<typeof formSchema>) {
-        console.log(data);
+    function onSubmit(form: z.infer<typeof formSchema>) {
+        createPostMutation.mutate(form);
     }
 
     if(isMobile){
@@ -74,7 +100,7 @@ const ContactForm = () => {
                             />
                             <FormField
                                 control={form.control}
-                                name="company_name"
+                                name="company"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
@@ -154,7 +180,7 @@ const ContactForm = () => {
                             />
                             <FormField
                                 control={form.control}
-                                name="company_name"
+                                name="company"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Company´s Name</FormLabel>

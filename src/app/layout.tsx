@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/lib/providers/theme-provider'
 import { NavigationMenuDemo } from '@/components/Header'
 import ActiveSectionContextProvider from '@/lib/providers/active-session-context'
 import Footer from '@/components/Footer'
+import { TrpcProvider } from '@/lib/providers/trpc-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,16 +20,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='!scroll-smooth' suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute='class' defaultTheme='dark'>
-          <ActiveSectionContextProvider >
-            <NavigationMenuDemo />
-            {children}
-            <Footer />
-          </ActiveSectionContextProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <TrpcProvider>
+      <html lang="en" className='!scroll-smooth' suppressHydrationWarning>
+        <body className={inter.className}>
+          <ThemeProvider attribute='class' defaultTheme='dark'>
+            <ActiveSectionContextProvider >
+              <NavigationMenuDemo />
+              {children}
+              <Footer />
+            </ActiveSectionContextProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </TrpcProvider>
   )
 }
