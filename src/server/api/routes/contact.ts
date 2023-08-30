@@ -11,10 +11,14 @@ export const contactRoutes = createTRPCRouter({
                 message: z.string().min(1),
             })
         )
-        .mutation(({ctx, input }) => {
-            console.log(input);
-            return {
-                success: true,
-            };
+        .mutation(({ctx: {session, prisma}, input }) => {
+            return prisma.message.create({
+                data: {
+                    name: input.name,
+                    company: input.company,
+                    email: input.email,
+                    message: input.message,
+                },
+            });
         }),
 })
