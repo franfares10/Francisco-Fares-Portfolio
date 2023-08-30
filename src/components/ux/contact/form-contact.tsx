@@ -34,7 +34,7 @@ const formSchema = z.object({
     name: z.string().min(6, "Too short").max(60, "Too long").nonempty("Required"),
     email: z.string().email("Invalid email").nonempty("Required"),
     message: z.string().min(10, "Too short").max(500, "Too long").nonempty("Required"),
-    company: z.string().min(6, "Too short").max(60, "Too long").nonempty("Required"),
+    company: z.string().min(2, "Too short").max(60, "Too long").nonempty("Required"),
 });
 
 const ContactForm = () => {
@@ -50,22 +50,18 @@ const ContactForm = () => {
 
     const createPostMutation = api.contact.createMessage.useMutation({
         async onSuccess() {
-            sendMessage();
+            setContent({
+                name: "",
+                email: "",
+                message: "",
+                company: "",
+            });
             toast({
                 title: "Message sent",
                 description: "Your message has been sent successfully",
             });
         }
     });
-
-    const sendMessage = useCallback(() => {
-        setContent({
-            name: "",
-            email: "",
-            message: "",
-            company: "",
-        });
-    },[content]);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
