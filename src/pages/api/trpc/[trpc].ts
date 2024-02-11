@@ -21,7 +21,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://francisco-fares.vercel.app');
     res.setHeader('Access-Control-Request-Method', '*');
     res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
 
