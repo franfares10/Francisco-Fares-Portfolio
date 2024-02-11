@@ -2,7 +2,6 @@
 
 const config = {
   reactStrictMode: true,
-  crossOrigin: "anonymous",
   images: {
     domains: [
       "www.google.com",
@@ -12,6 +11,7 @@ const config = {
       "pbs.twimg.com",
     ],
   },
+
 };
 
 

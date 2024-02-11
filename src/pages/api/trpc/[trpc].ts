@@ -12,20 +12,17 @@ export const config = {
     },
 }
 
-const nextApiHandler = createNextApiHandler({
+export default createNextApiHandler({
     router: appRouter,
     createContext: createTRPCContext,
-});
-
-export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse
-) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
-
-    return nextApiHandler(req, res);
-}
+    onError:
+      process.env.NODE_ENV === "development"
+        ? ({ path, error }) => {
+            console.error(
+              `❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`
+            );
+          }
+        : undefined,
+  });
 
 
