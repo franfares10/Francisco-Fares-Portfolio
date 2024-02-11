@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/lib/providers/theme-provider';
 import { NavigationMenuDemo } from '@/components/Header';
-import ActiveSectionContextProvider from '@/lib/providers/active-session-context';
+import ActiveSectionContextProvider from '@/lib/providers/active-section-context';
 import Footer from '@/components/Footer';
 import { TrpcProvider } from '@/lib/providers/trpc-provider';
 import { Toaster } from '@/components/ui/toaster';
