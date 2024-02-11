@@ -1,14 +1,7 @@
 'use client';
 import Studies from '@/components/data/studies';
-import useMediaQuery from '@/components/hooks/useMediaQuery';
-import { Label } from '@/components/ui/label';
-import { StudiesSlider } from '@/components/ux/studies/studies-slider';
-import Autoplay from 'embla-carousel-autoplay';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import SectionHeading from '@/components/ux/employment_history/section-heading';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import { Separator } from '@/components/ui/separator';
 import {
   Carousel,
   CarouselContent,
@@ -21,9 +14,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useTheme } from 'next-themes';
 
 const StudiesPage = () => {
-
+  const { theme, setTheme } = useTheme();
   return (
     <div
       id='studies'
@@ -36,7 +30,7 @@ const StudiesPage = () => {
             <CarouselItem key={index} className='lg:basis-1/2'>
               <div className=''>
                 <Card>
-                  <CardContent className='flex flex-col aspect-auto items-center justify-center px-0 gap-y-4'>
+                  <CardContent className='flex flex-col aspect-auto items-center justify-center px-0 gap-y-4' style={{backgroundColor: theme === 'light' ? '#f3f4f6' : 'rgba(255, 255, 255, 0.05)'}}>
                     <Image
                       alt={study.description}
                       src={study.img}
