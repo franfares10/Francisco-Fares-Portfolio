@@ -7,7 +7,6 @@ import useMediaQuery from '../../components/hooks/useMediaQuery';
 import avatar from "@/assets/foto_cv.jpg";
 import { delay, motion } from 'framer-motion';
 
-
 const Home = () => {
     const { isMobile, height } = useMediaQuery();
     const container = {

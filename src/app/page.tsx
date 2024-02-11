@@ -12,7 +12,7 @@ import Projects from './projects/Projects';
 
 const HomePage = () => {
     return (
-        <main className="flex flex-col items-center px-8">
+        <main className="flex flex-col items-center px-8 w-full">
             <Home/>
             <StudiesPage/>
             <Experience/>

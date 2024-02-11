@@ -23,6 +23,7 @@ import Image from "next/image";
 import linkedin from "@/assets/linkedin.png";
 import github from "@/assets/github.svg";
 import gmail from "@/assets/gmail.png";
+import fiverr from "@/assets/fiverr.svg";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useMediaQuery from "@/components/hooks/useMediaQuery";
 import { useCallback } from "react";
@@ -142,6 +143,9 @@ const ContactForm = () => {
                             <Link href="https://github.com/franfares10">
                                 <Image width={20} src={github} alt="GitHub"/>
                             </Link>
+                            <Link href="https://www.fiverr.com/franciscofares">
+                                <Image width={25} src={fiverr} alt="Fiverr" />
+                            </Link>
                         </div>
                         <div className="w-full flex items-center justify-center py-6">
                             <Button type="submit" className="rounded-full w-1/2 bg-blue-500 text-white font-bold hover:scale-125 ">Submit</Button>
@@ -222,6 +226,9 @@ const ContactForm = () => {
                             </Link>
                             <Link href="https://github.com/franfares10">
                                 <Image width={25} src={github} alt="GitHub" />
+                            </Link>
+                            <Link href="https://www.fiverr.com/franciscofares">
+                                <Image width={25} src={fiverr} alt="Fiverr" />
                             </Link>
                         </div>
                         <div className="w-full flex items-center justify-center py-6">
