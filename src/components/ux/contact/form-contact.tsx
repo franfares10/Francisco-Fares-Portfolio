@@ -160,7 +160,7 @@ const ContactForm = () => {
                 <Button
                   type='submit'
                   disabled={!form.formState.isValid}
-                  
+                  loading={createPostMutation.isPending}
                   className='rounded-md w-full bg-blue-500 text-white font-bold'
                 >
                   Submit
@@ -251,7 +251,7 @@ const ContactForm = () => {
             <div className='w-full flex items-center justify-center pt-6'>
               <Button
                 type='submit'
-                
+                loading={createPostMutation.isPending}
                 disabled={!form.formState.isValid}
                 className='rounded-md w-full bg-blue-500 text-white font-bold'
               >
