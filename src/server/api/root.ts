@@ -1,5 +1,5 @@
 import { createTRPCRouter } from "../trpc";
-import { contactRoutes } from "./routes/contact";
+import { contactRoutes } from "./routers/contact";
 
 export const appRouter = createTRPCRouter({
     contact: contactRoutes,
