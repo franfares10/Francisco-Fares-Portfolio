@@ -182,6 +182,7 @@ const ContactForm = () => {
               <FormField
                 control={form.control}
                 name='company'
+                defaultValue=''
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Company´s Name</FormLabel>
@@ -196,6 +197,7 @@ const ContactForm = () => {
             <FormField
               control={form.control}
               name='email'
+              defaultValue=''
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
@@ -209,6 +211,7 @@ const ContactForm = () => {
             <FormField
               control={form.control}
               name='message'
+              defaultValue=''
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Message</FormLabel>
