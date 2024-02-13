@@ -15,26 +15,12 @@ export const contactRoutes = createTRPCRouter({
       })
     )
     .mutation(async ({ input }) => {
-      const { data, error } = await resend.emails.send({
+      console.log("router input: " ,input);
+      return resend.emails.send({
         from: "Acme <onboarding@resend.dev>",
         to: process.env.CONTACT_EMAIL as string,
         subject: `Portfolio -  ${input.name} wants to contact you!`,
         text: `Name: ${input.name}\nCompany: ${input.company}\nEmail: ${input.email}\nMessage: ${input.message}`,
       });
-
-      if(error) {
-        return {
-          success: false,
-          status: 400,
-          error: error.message,
-        }
-      }
-
-      return {
-        success: true,
-        status: 200,
-        data: data,
-      }
-
     }),
 });
