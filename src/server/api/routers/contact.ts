@@ -8,16 +8,16 @@ export const contactRoutes = createTRPCRouter({
   createMessage: publicProcedure
     .input(
       z.object({
-        name: z.string().min(1).max(255),
-        company: z.string().min(1).max(255),
-        email: z.string().email(),
-        message: z.string().min(1),
+        name: z.string().min(6, 'Too short').max(60, 'Too long'),
+        email: z.string().email('Invalid email'),
+        message: z.string().min(10, 'Too short').max(500, 'Too long'),
+        company: z.string().min(2, 'Too short').max(60, 'Too long'),
       })
     )
     .mutation(async ({ input }) => {
-      console.log("router input: " ,input);
+      console.log('router input: ', input);
       return resend.emails.send({
-        from: "Acme <onboarding@resend.dev>",
+        from: 'Acme <onboarding@resend.dev>',
         to: process.env.CONTACT_EMAIL as string,
         subject: `Portfolio -  ${input.name} wants to contact you!`,
         text: `Name: ${input.name}\nCompany: ${input.company}\nEmail: ${input.email}\nMessage: ${input.message}`,

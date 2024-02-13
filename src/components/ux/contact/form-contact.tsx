@@ -25,35 +25,18 @@ import gmail from '@/assets/gmail.png';
 import fiverr from '@/assets/fiverr.svg';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import useMediaQuery from '@/components/hooks/useMediaQuery';
-import { useCallback } from 'react';
 import React from 'react';
-import { create } from 'domain';
-import { useRouter } from 'next/router';
 
 const formSchema = z.object({
-  name: z.string().min(6, 'Too short').max(60, 'Too long').nonempty('Required'),
-  email: z.string().email('Invalid email').nonempty('Required'),
-  message: z
-    .string()
-    .min(10, 'Too short')
-    .max(500, 'Too long')
-    .nonempty('Required'),
-  company: z
-    .string()
-    .min(2, 'Too short')
-    .max(60, 'Too long')
-    .nonempty('Required'),
+  name: z.string().min(6, 'Too short').max(60, 'Too long'),
+  email: z.string().email('Invalid email'),
+  message: z.string().min(10, 'Too short').max(500, 'Too long'),
+  company: z.string().min(2, 'Too short').max(60, 'Too long'),
 });
 
 const ContactForm = () => {
   const { isMobile } = useMediaQuery();
-  const [content, setContent] = React.useState({
-    name: '',
-    email: '',
-    message: '',
-    company: '',
-  });
-  const utils = trpc.useContext();
+ 
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -68,7 +51,7 @@ const ContactForm = () => {
       });
     },
     onError(error) {
-      console.log(error)
+      console.log(error);
       toast({
         title: 'Error',
         description: "We couldn't send your message, please try again later",
@@ -185,6 +168,7 @@ const ContactForm = () => {
               <FormField
                 control={form.control}
                 name='name'
+                defaultValue=''
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Full Name</FormLabel>
