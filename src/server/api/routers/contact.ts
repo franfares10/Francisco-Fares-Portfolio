@@ -2,8 +2,6 @@ import { z } from 'zod';
 import { createTRPCRouter, publicProcedure } from '../../trpc';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export const contactRoutes = createTRPCRouter({
   createMessage: publicProcedure
     .input(
@@ -15,7 +13,7 @@ export const contactRoutes = createTRPCRouter({
       })
     )
     .mutation(async ({ input }) => {
-      console.log('router input: ', input);
+      const resend = new Resend(process.env.RESEND_API_KEY);
       return resend.emails.send({
         from: 'Acme <onboarding@resend.dev>',
         to: process.env.CONTACT_EMAIL as string,

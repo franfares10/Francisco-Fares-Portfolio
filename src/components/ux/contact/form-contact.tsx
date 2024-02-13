@@ -50,8 +50,7 @@ const ContactForm = () => {
         description: 'Your message has been sent successfully',
       });
     },
-    onError(error) {
-      console.log(error);
+    onError() {
       toast({
         title: 'Error',
         description: "We couldn't send your message, please try again later",
@@ -60,7 +59,8 @@ const ContactForm = () => {
   });
 
   function onSubmit(form: z.infer<typeof formSchema>) {
-    createPostMutation.mutate(form);
+    const res = createPostMutation.mutate(form);
+    console.log(res)
   }
 
   if (isMobile) {

@@ -16,8 +16,11 @@ const getBaseUrl = () => {
   return `http://localhost:${process.env.PORT ?? 3000}`; // dev SSR should use localhost
 };
 
+console.log('getBaseUrl', getBaseUrl());
+
 /** A set of type-safe react-query hooks for your tRPC API. */
 export const api = createTRPCNext<AppRouter>({
+  transformer: superjson,
   config(opts) {
     return {
       /**
@@ -43,7 +46,6 @@ export const api = createTRPCNext<AppRouter>({
    * @see https://trpc.io/docs/nextjs#ssr-boolean-default-false
    */
   ssr: false,
-  transformer: superjson,
 });
 
 /**
