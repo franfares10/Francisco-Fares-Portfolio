@@ -36,6 +36,7 @@ const t = initTRPC.context<typeof createInnerTRPCContext>().create({
             },
         };
     },
+    transformer: superjson,
 });
 
 export const createTRPCRouter = t.router;

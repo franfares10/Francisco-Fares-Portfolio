@@ -68,6 +68,7 @@ const ContactForm = () => {
       });
     },
     onError(error) {
+      console.log(error)
       toast({
         title: 'Error',
         description: "We couldn't send your message, please try again later",

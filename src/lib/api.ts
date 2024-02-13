@@ -32,6 +32,7 @@ export const api = createTRPCNext<AppRouter>({
         }),
         httpBatchLink({
           url: `${getBaseUrl()}/api/trpc`,
+          transformer: superjson,
         }),
       ],
     };
@@ -42,6 +43,7 @@ export const api = createTRPCNext<AppRouter>({
    * @see https://trpc.io/docs/nextjs#ssr-boolean-default-false
    */
   ssr: false,
+  transformer: superjson,
 });
 
 /**
