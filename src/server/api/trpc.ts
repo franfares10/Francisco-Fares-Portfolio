@@ -3,7 +3,7 @@ import { type CreateNextContextOptions } from '@trpc/server/adapters/next';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
 import { type Session } from 'next-auth';
-import  prisma  from '@/lib/db';
+import  prisma  from '@/server/db';
 
 interface CreateContextOptions {
     session: Session | null;

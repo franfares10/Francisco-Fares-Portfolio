@@ -36,8 +36,8 @@ const formSchema = z.object({
 
 const ContactForm = () => {
   const { isMobile } = useMediaQuery();
- 
   const { toast } = useToast();
+  const [loading, setLoading] = React.useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -58,9 +58,28 @@ const ContactForm = () => {
     },
   });
 
-  function onSubmit(form: z.infer<typeof formSchema>) {
-    const res = createPostMutation.mutate(form);
-    console.log(res)
+  async function onSubmit(form: z.infer<typeof formSchema>) {
+    //const res = createPostMutation.mutate(form);
+    setLoading(true);
+
+    const res = await fetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify(form),
+    });
+
+    if (res.ok) {
+      toast({
+        title: 'Message sent',
+        description: 'Your message has been sent successfully',
+      });
+    } else {
+      toast({
+        title: 'Error',
+        description: "We couldn't send your message, please try again later",
+      });
+    }
+
+    setLoading(false);
   }
 
   if (isMobile) {
@@ -144,7 +163,7 @@ const ContactForm = () => {
                 <Button
                   type='submit'
                   disabled={!form.formState.isValid}
-                  loading={createPostMutation.isPending}
+                  loading={loading}
                   className='rounded-md w-full bg-blue-500 text-white font-bold'
                 >
                   Submit
@@ -239,7 +258,7 @@ const ContactForm = () => {
             <div className='w-full flex items-center justify-center pt-6'>
               <Button
                 type='submit'
-                loading={createPostMutation.isPending}
+                loading={loading}
                 disabled={!form.formState.isValid}
                 className='rounded-md w-full bg-blue-500 text-white font-bold'
               >
